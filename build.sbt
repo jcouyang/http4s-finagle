@@ -8,7 +8,7 @@ val supportedScalaVersions = List(scala213,scala212,dotty)
 
 inScope(Scope.GlobalScope)(
   List(
-    organization := "org.http4s",
+    organization := "us.oyanglul",
     licenses := Seq("Apache License 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
     homepage := Some(url("https://github.com/http4s/http4s-finagle")),
     developers := List(
@@ -26,11 +26,12 @@ inScope(Scope.GlobalScope)(
     /* TODO: Everything compile in dotty, BUT runtime error
      java.lang.NoSuchMethodError: org.http4s.dsl.io$.GET()Lorg/http4s/Method$PermitsBody;
      */
-    scalaVersion := scala213
+    scalaVersion := scala213,
+    resolvers += Resolver.sonatypeRepo("snapshots"),
   )
 )
 
-val Http4sVersion = "0.21.4"
+val Http4sVersion = "1.0.0-M0+377-c3d13c94-SNAPSHOT"
 val FinagleVersion = "20.5.0"
 
 lazy val root = (project in file("."))
